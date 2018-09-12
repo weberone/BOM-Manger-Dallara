@@ -1,0 +1,892 @@
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* MIXIN */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+@mixin anim_hover_all {
+	text-decoration: none;
+	//text-transform: none; 
+	transition: all 0.3s ease-in-out;
+   -moz-transition: all 0.3s ease-in-out;
+   -webkit-transition: all 0.3s ease-in-out;
+}
+
+@mixin noanim_hover_all {
+	text-decoration: none;
+	//text-transform: none; 
+	transition: all 0s ease-in-out;
+   -moz-transition: all 0s ease-in-out;
+   -webkit-transition: all 0s ease-in-out;
+}
+
+@mixin block_shadow {
+	-webkit-box-shadow: 0px 0px 34px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 34px -2px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 34px -2px rgba(0,0,0,0.75);
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* FONTS */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+
+@mixin regular {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 400;
+}
+
+@mixin bold {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 700;
+}
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* IMPORT */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+@import 'color';
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* SYSTEM */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+body{
+  -webkit-overflow-scrolling: touch;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $bianco_bg;
+  @include regular;
+  font-size: 15px;
+  line-height: 20px;
+  color: $grigio;
+  @media screen and (max-width: 767px) {
+
+  }
+}
+
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+
+.hide {
+  display: none;
+}
+
+
+.wrapper {
+	display: flex;
+    width: 100%;
+}
+
+#sidebar {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 999;
+    background: $grigio_scuro;
+    color: $grigio_bordo;
+    transition: all 0.3s;
+    .sidebar-header{
+	    text-align: center;
+	    padding: 11px 0px;
+	}
+	ul.nav-dallara{
+		li.search_bar{
+			padding: 16px 10px;
+			background: transparent;
+			position: relative;
+			
+			.search-filter{
+				background-color: transparent;
+				background:  url("../images/lente.png") center right 10px no-repeat;
+				border: 1px solid $grigio_chiaro2;
+				border-radius: 5px;
+				color: $grigio_bordo;
+				padding: 20px 10px;
+				position: relative;
+	
+			}
+			input[type="search"]#nav-search::-webkit-input-placeholder {
+			  color: $grigio_chiaro2;
+			}
+		}
+		li{
+			list-style: none;
+			a{
+				padding: 10px 20px;
+				border-top: 1px solid $grigio_chiaro2;
+				cursor: pointer;
+				display: block;
+				&:hover{
+					color: $giallo;
+					background: lighten($grigio_scuro, 10%) ;
+				}
+				&[aria-expanded="true"]{
+				  color: $bianco;
+				  color: $giallo;
+					&.nav-link-collapse{
+						&:after{
+							content: url("../images/meno.png");
+							position: absolute;
+							right: 20px;
+						}
+					}
+				}
+				&.nav-link-collapse{
+					&:after{
+						content: url("../images/piu.png");
+						position: absolute;
+						right: 20px;
+					}
+				}
+			}
+			ul{
+				padding-left: 0px;
+				//padding-bottom: 40px;
+				li{
+					a{
+						border: none;
+						text-indent: 20px;
+					}
+					ul{
+						//padding-bottom: 0px;
+						li{
+							a{
+								text-indent: 30px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	#header{
+		position: fixed; 
+		height: 56px;
+		border-bottom: 1px solid $grigio_bordo;
+		top: 0px; 
+		left: 310px; 
+		right:0px; 
+		background: $grigio_label;
+		color: $grigio;
+		.btn_sidebar{
+			height: 55px;
+			background: $grigio;
+			color: $bianco;
+			border-radius: 0;
+			width: 25px;
+			margin-left: -10px;
+			-webkit-border-bottom-right-radius: 5px;
+			-moz-border-radius-bottomright: 5px;
+			border-bottom-right-radius: 5px;
+			position: relative;
+			&:after{
+				content: url("../images/arrow_sx.png");
+				position: absolute;
+				right: 10px;
+				top: 15px;
+			}
+		}
+		.right_toolbar{
+			padding: 18px;
+		}
+	}
+	#footer{
+		position: fixed; 
+		bottom: 0px; 
+		left: 310px; 
+		right:0px; 
+		.toolbar_footer{
+			background: $grigio;
+			height: 55px;
+			color: $grigio_chiaro;
+			border-top: 1px solid $grigio_bordo;
+			@media (max-width: 1580px) { 
+				height: auto;
+			}
+			.text{
+				margin: 18px 0px 0px 18px;
+				display: block;
+				@media (max-width: 1024px) { 
+					margin: 18px 0px;
+				}
+				a{
+					color: $bianco;
+					&.active{
+						color: $grigio_bordo;
+					}
+				}
+				&.version{
+					@media (max-width: 1200px) { 
+						display: none;
+					}
+				}
+			}
+			
+			.data_user{
+				float: right;
+				@media (max-width: 1024px) { 
+			    	text-align: center;
+			    	width: 100%;
+			    	border-top: 1px solid $grigio_chiaro2;
+				}
+				a{
+					&:hover{
+						img{
+							border: 1px solid $giallo;
+						}
+					}
+				}
+				.name_user{
+					margin: 18px 0px 0px 18px;
+					display: inline-block;
+					color: $bianco;
+					@media (max-width: 1024px) { 
+				    	margin: 18px;
+				    }
+				}
+				img{
+					width: 40px;
+					height: 40px;
+					display: inline-block;
+					//margin-top: 8px;
+					border-radius: 40px;
+					border: 1px solid $grigio_bordo;
+				}
+				.lang{
+					border-left: 1px solid $grigio_chiaro2;
+					margin: 18px 18px 0px 18px;
+					padding-left: 18px;
+					@media (max-width: 1024px) { 
+				    	margin-left: 0px;
+				    }
+				    a{
+				    	&:hover{
+				    		color: $giallo;
+				    	}
+				    	&.active{
+				    		color: $bianco;
+				    	}
+				    }
+				}
+			}
+		}
+		.action_bar{
+			background: $bianco;
+			border-top: 1px solid $grigio_bordo;
+			//height: 80px;
+			text-align: center;
+			.btn-round{
+				background: $giallo;
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				margin: 15px;
+				-webkit-box-shadow: 5px 5px 15px -4px rgba(0,0,0,0.75);
+				-moz-box-shadow: 5px 5px 15px -4px rgba(0,0,0,0.75);
+				box-shadow: 5px 5px 15px -4px rgba(0,0,0,0.75);
+				&.save{
+					background: $giallo url("../images/save.png") center center no-repeat;
+					&:hover{
+						background: lighten($giallo, 10%) url("../images/save.png") center center no-repeat;
+					}
+				}
+				&.ok{
+					background: $giallo url("../images/ok.png") center center no-repeat;
+					&:hover{
+						background: lighten($giallo, 10%) url("../images/ok.png") center center no-repeat;
+					}
+				}
+			}
+		}
+	}
+	&.active {
+	    margin-left: -300px;
+	    .btn_sidebar{
+			&:after{
+				content: url("../images/arrow_dx.png")!important;
+				position: absolute;
+				right: 10px;
+				top: 15px;
+			}
+		}
+	}
+}
+
+
+
+#content {
+    width: calc(100% - 300px);
+    padding: 40px;
+    padding-top: 55px;
+    padding-bottom: 170px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-left: 10px solid $grigio;
+    @media (max-width: 1024px) { 
+		padding-bottom: 210px;
+	}
+	
+    .btn-primary{
+		background: $blu;
+		text-transform: uppercase;
+		color: $bianco;
+		font-size: 14px;
+		line-height: 14px;
+		padding: 12px 30px;
+		text-align: center;
+		@include regular;
+		&:hover{
+			//background: $blu_hover;
+			background: lighten($blu, 10%);
+		}
+		@media (max-width: 1580px) { 
+			margin-top: 30px;
+			width: 100%;
+			padding: 12px 12px;
+			font-size: 12px;
+		}
+	}
+    .dallara_row{
+    	border-radius: 4px;
+    	background: $bianco;
+    	border: 1px solid $grigio_bordo;
+    	margin-top: 30px;
+    	.dallara_title{
+    		background: $grigio_label;
+    		-webkit-border-top-left-radius: 4px;
+			-webkit-border-top-right-radius: 4px;
+			-moz-border-radius-topleft: 4px;
+			-moz-border-radius-topright: 4px;
+			border-top-left-radius: 4px;
+			border-top-right-radius: 4px;
+			padding: 12px 20px;
+			h3{
+				color: $blu;
+				font-size: 18px;
+				line-height: 18px;
+				margin-bottom: 0px;
+				text-transform: uppercase;
+				margin-right: 60px;
+			}
+			.switch_top{
+				position: absolute; right: 20px; top: 6px;
+			}
+    	}
+    	.dallara_content{
+    		padding: 20px;
+    		width: 100%;
+    	}
+		.dallara_form{
+			.form-group{
+				margin-bottom: 15px;
+				margin-top: 15px;
+				@media (max-width: 1024px) { 
+					margin-bottom: 0px;
+					margin-top: 0px;
+				}
+				.col:first-child{
+					.lab_vert{
+						label{
+							text-align: left;
+						}
+					}
+				}
+			}
+			.col{
+				@media (max-width: 1024px) { 
+					width: 100%!important; 
+					flex-basis: initial!important;
+					max-width: 100%!important;
+					margin-top: 15px;
+				}
+				.lab_vert{
+		    		height: 100%;
+					display: table;
+					float: left;
+					width: 35%;
+					font-size: 15px;
+					line-height: 14px;
+					@media (max-width: 1580px) { 
+						width: 100%; 
+						float: none; 
+						display: block; 
+						height: 30px;
+						//background: yellow;
+					}
+					label{
+						display: table-cell;
+		    			vertical-align: middle;
+		    			text-align: right;
+		    			@media (max-width: 1580px) { 
+							display: block; 
+							text-align: left;
+						}
+					}
+				}
+				.input-group{
+					float: left;
+					width: 60%;
+					@media (max-width: 1580px) { 
+						width: 100%; 
+						//margin-left: 0;
+					}
+					input{
+						width: 0;
+						@media (max-width: 1580px) { 
+							//width: 80%; 
+						}
+					}
+					.ico-user{
+						margin-left: 5px;
+						border: none;
+						width: 40px;
+						height: 40px;
+						border-radius: 4px;
+						background: $blu url("../images/user.png") center center no-repeat;
+						@include anim_hover_all;
+						&:hover{
+							background: lighten($blu, 10%) url("../images/user.png") center center no-repeat;
+							//background: lighten($blu, 10%);
+							@include anim_hover_all;
+						}
+						@media (max-width: 1580px) { 
+		
+						}
+					}
+				}
+				input{
+					float: left;
+					width: 60%;
+					margin-left: 5%;
+					height: 40px;
+					background: $grigio_label;
+					border: 1px solid $grigio_bordo;
+					border-radius: 4px;
+					@media (max-width: 1580px) { 
+						width: 100%; 
+						margin-left: 0;
+					}
+				}
+			}
+		}
+    }
+    &.active {
+	    width: 100%;
+	}
+}
+
+.logout{
+	cursor: default!important;
+	@media (max-width: 1024px) {
+	   width: 50%;
+	}
+	a.btn{
+		border: none;
+		border-radius: 0!important;
+		height: 54px!important;
+		text-transform: uppercase!important;
+		font-size: 14px!important;
+		color: $grigio!important;;
+		line-height: 40px!important;
+		background: $grigio_chiaro3!important;
+		@include regular;
+		@media (max-width: 1024px) {
+		   width: 100%;
+		}
+		&:hover{
+			background: $grigio_chiaro!important;
+			color: $bianco!important;
+			cursor: pointer!important;
+		}
+	}
+}
+
+.change_cat{
+	@media (max-width: 1024px) {
+	   width: 50%;
+	}
+	.dropdown-toggle::after{
+		position: absolute;
+		right: 20px;
+		top: 25px;
+		border-top: 0;
+		border-right: .3em solid transparent;
+		border-bottom: .3em solid;
+		border-left: .3em solid transparent;
+	}
+	.dropdown.show{
+		.dropdown-toggle::after{
+			position: absolute;
+			right: 20px;
+			top: 25px;
+		   	border-top: .3em solid;
+		    border-right: .3em solid transparent;
+		    border-bottom: 0;
+		    border-left: .3em solid transparent;
+		}
+	}
+	button{
+		width: 340px;
+		height: 54px;
+		color: $bianco;
+		padding-left: 20px;
+		padding-right: 20px;
+		text-align: left;
+		border-radius: 0px;
+		@media (max-width: 1024px) { 
+			width: 100%; 
+			padding-right: 50px;
+		}
+	}
+	ul.dropdown-menu {
+	    min-width: 10rem;
+	    padding:0;
+	    margin: 0;
+	    font-size: 1rem;
+	    color: $bianco;
+	    background-color: transparent;
+	    border: none;
+	    border-radius: 0;
+	    @media (max-width: 1024px) {
+		   width: 100%;
+		}
+		li{
+			a{
+				color: $bianco;
+				display: block;
+				padding: 20px;
+				width: 340px;
+				height: 55px;
+				@media (max-width: 1024px) {
+				   width: auto;
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+[data-value="Dallara Group"], [value="Dallara Group"]{
+	background: $Dallara_Group;
+}
+[data-value="Dallara Real Estate"], [value="Dallara Real Estate"]{
+	background: $Dallara_Real_Estate;
+}
+[data-value="Dallara Research Center"], [value="Dallara Research Center"]{
+	background: $Dallara_Research_Center;
+}
+[data-value="Dallara LLC"], [value="Dallara LLC"]{
+	background: $Dallara_LLC;
+}
+[data-value="Dallara Fabbrica"], [value="Dallara Fabbrica"]{
+	background: $Dallara_Fabbrica;
+}
+[data-value="Dallara Compositi"], [value="Dallara Compositi"]{
+	background: $Dallara_Compositi;
+}
+[data-value="Dallara Automobili"], [value="Dallara Automobili"]{
+	background: $Dallara_Automobili;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+
+#sidebar ul li a:hover {
+    color: #7386D5;
+    background: #fff;
+}
+
+#sidebar ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+*/
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+    
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+ /**/
+@media (max-width: 1024px) {
+   #sidebar {
+        margin-left: -300px;
+        #header, #footer{
+	    	left: 10px;
+	    }
+	    #header.active, #footer.active{
+	    	left: 310px!important;
+	    }
+    }
+    
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 300px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+@media (max-width: 500px) { 
+	#content, #header .right_toolbar, #footer{
+    	//display: block;
+    	opacity: 1;
+    	@include anim_hover_all;
+    }
+    #content.active, #header.active .right_toolbar, #footer.active{
+    	//display: none;
+    	opacity: 0.3;
+    	@include anim_hover_all;
+    	width: 350px;
+    }
+
+    #footer.active{
+    	opacity: 0;
+    	@include anim_hover_all;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#header, #footer{
+    transition: all 0.3s!important;
+}
+
+#header.active, #footer.active{
+    left: 10px!important; transition: all 0.3s!important;
+}
+
+
+
+
+
+
+
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  width: 50px;
+  height: 28px;
+
+	/* Hide default HTML checkbox */
+	& input {
+		display:none;
+
+		&:checked + .slider:after {
+		  -webkit-transform: translateX(0px);
+		  -ms-transform: translateX(0px);
+		  transform: translateX(0px);
+		  /*width: 235px;*/
+		  //padding-left: 25px;
+		}
+		&:checked + .slider:before {
+		  background: $bianco url("../images/lock.png") center center no-repeat;
+		  background-size: 50%;
+		  //-webkit-transform: translateX(160px);
+		  //-ms-transform: translateX(160px);
+		  //transform: translateX(160px);
+		  -webkit-transform: translateX(22px);
+		  -ms-transform: translateX(22px);
+		  transform: translateX(22px);
+		  @include block_shadow;
+
+		  
+		}
+		&:checked + .slider {
+		   background-color: $rosso;
+		}
+
+		&:focus + .slider {
+		  //box-shadow: 0 0 1px #2196F3;
+		}
+
+		&:checked + .slider:before {
+		  -webkit-transform: translateX(22px);
+		  -ms-transform: translateX(22px);
+		  transform: translateX(22px);
+		}
+			}
+
+
+
+	/* The slider */
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0;
+	  left: 0;
+	  right: 0;
+	  bottom: 0;
+	  background-color: #ccc;
+	  background-color: $verde;
+	  border: 1px solid $grigio_bordo;
+	  -webkit-transition: .2s;
+	  transition: .2s;
+	  overflow: hidden;
+	  &:before {
+		  position: absolute;
+		  content: "";
+		  height: 26px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		   left: 0px;
+		  bottom: 0px;
+
+		  background: $bianco url("../images/unlock.png") center center no-repeat;
+		  background-size: 50%;
+		  -webkit-transition: .2s;
+		  transition: .2s;
+		  @include block_shadow;
+		}
+		/* Rounded sliders */
+	&.round {
+	  border-radius: 50px;
+	}
+
+	&.round:before {
+	  border-radius: 50%;
+	}
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

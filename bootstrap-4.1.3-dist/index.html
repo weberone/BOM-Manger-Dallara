@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>BOM Manger Dallara - v0.1</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="css/dallara.css">
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Sidebar  -->
+      <nav id="sidebar">
+        <!-- Header  -->
+        <div id="header">
+          <button type="button" id="sidebarCollapse" class="btn btn_sidebar"></button>
+          <div class="float-right right_toolbar">Lunedì 3 Settembre 2018</div>
+        </div>
+        <!-- Footer  -->
+        <div id="footer">
+          <div class="action_bar">
+            <button type="submit" class="btn btn-round save"></button>
+            <button type="submit" class="btn btn-round ok"></button>
+          </div>
+          <div class="toolbar_footer">
+            <div class="float-left text version">BOM Manger Dallara - v0.1</div>
+            <div class="float-right logout">   
+              <a href="#" class="btn btn-primary" role="button" aria-pressed="true">Logout</a>
+            </div>
+            <div class="float-right change_cat">   
+              <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" data-value="Dallara Group" aria-haspopup="true" aria-expanded="true">Dallara Group</button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                  <li><a href="#" data-value="Dallara Group">Dallara Group</a></li>
+                  <li><a href="#" data-value="Dallara Real Estate">Dallara Real Estate</a></li>
+                  <li><a href="#" data-value="Dallara Research Center">Dallara Research Center</a></li>
+                  <li><a href="#" data-value="Dallara LLC">Dallara LLC</a></li>
+                  <li><a href="#" data-value="Dallara Fabbrica">Dallara Fabbrica</a></li>
+                  <li><a href="#" data-value="Dallara Compositi">Dallara Compositi</a></li>
+                  <li><a href="#" data-value="Dallara Automobili">Dallara Automobili</a></li>
+                </ul>
+              </div>
+            </div>
+            <!--<div class="float-right text lang"><a href="#" class="active">IT</a> - <a href="#">EN</a></div>-->
+            <div class="data_user">
+              <a href="#"><img src="images/img_avatar.png"><span class="name_user">manfredini_m</span></a>
+              <span class="lang"><a href="#" class="active">IT</a> - <a href="#">EN</a></span>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </div>
+        <!-- Sidebar menu  -->
+        <div class="sidebar-header">
+          <img src="images/Dallara_logo.png">
+        </div>
+        <form role="form">
+          <ul class="sidebar-nav navbar-nav nav-dallara">
+            <li class="nav-item search_bar">
+              <input class="form-control form-control-sm search-filter" type="search" id="nav-search" placeholder="Jump to...">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTecnico">Tecnico</a>
+              <ul class="sidebar-second-level collapse" id="collapseTecnico">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Richieste Revisione</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Richieste Modifica</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Richieste Produzione</a>
+                </li>
+                <li>
+                  <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAereodinamica">Aereodinamica</a>
+                  <ul class="sidebar-third-level collapse" id="collapseAereodinamica">
+                    <li>
+                      <a href="#">Modifica Aereodinamica</a>
+                    </li>
+                    <li>
+                      <a href="#">Produzione Aereodinamica</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMagazzino">Magazzino</a>
+              <ul class="sidebar-second-level collapse" id="collapseMagazzino">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Magazzino Revisione</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Magazzino Modifica</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Magazzino Produzione</a>
+                </li>
+                <li>
+                  <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMagazzino2">Magazzino passato</a>
+                  <ul class="sidebar-third-level collapse" id="collapseMagazzino2">
+                    <li>
+                      <a href="#">Modifica Magazzino</a>
+                    </li>
+                    <li>
+                      <a href="#">Produzione Magazzino</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tracciabilit&agrave;</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vendite</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Produzioni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Acquisti</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseAnagrafica">Anagrafica Vetture</a>
+              <ul class="sidebar-second-level collapse" id="collapseAnagrafica">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Marca</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Modello</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Numero di telaio</a>
+                </li>
+                <li>
+                  <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#collapseTipologia">Tipologia</a>
+                  <ul class="sidebar-third-level collapse" id="collapseTipologia">
+                    <li>
+                      <a href="#">Tipologia 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Tipologia 2</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Lorem ipsum</a>
+            </li>
+          </ul>
+        </form>
+      </nav>
+      <!-- Page Content  -->
+      <div id="content">
+
+        <div class="row dallara_row">
+          <div class="col-sm-12 dallara_title">
+            <h3>identificazione vettura</h3>
+            <div class="switch_top">
+              <label class="switch">
+                <input type="checkbox" >
+                <span class="slider round"></span>
+              </label>
+            </div>     
+          </div>
+          <div class="dallara_content">
+            <form class="dallara_form">
+
+              <div class="form-group row">
+                <div class="col">
+                  <div class="lab_vert">
+                    <label>N° VIN</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col">
+                  <div class="lab_vert">
+                    <label> Codice Articolo</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col">
+                  <div class="lab_vert">
+                    <label>Codice Seriale</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col col-sm-2">
+                  <div class="lab_vert">
+                    <label>N° Targa</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col col-sm-1"> 
+                  <div class="lab_vert">
+                    <label>KM</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col col-sm-2">
+                  <div class="lab_vert">
+                    <label>Et&agrave; Vettura (aa/mm)</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col col-sm-3">
+                  <div class="lab_vert">
+                    <label>Propietario</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col col-sm-4">
+                  <div class="lab_vert">
+                    <label>Codice Cliente</label>
+                  </div>
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                     <div class=" ico-user"></div>
+                  </div>
+                </div>
+                <div class="col col-sm-3">
+                  <div class="lab_vert">
+                    <label>Contatto</label>
+                  </div>
+                  <input type="" class="form-control" id="" placeholder="">
+                </div>
+                <div class="col col-sm-2">
+                  <button type="submit" class="btn btn-primary float-right">Modifica dati</button>
+                </div>
+              </div>
+
+            </form>  
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- jQuery Custom Scroller CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- GLOBAL -->
+    <script src="js/global.js"></script>
+  </body>
+</html>
