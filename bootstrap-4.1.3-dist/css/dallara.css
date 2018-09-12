@@ -417,6 +417,14 @@ a, a:hover, a:focus {
   }
 }
 
+#content .dallara_row .dallara_form .form-group .col:first-child {
+  flex-grow: 0.6;
+}
+
+#content .dallara_row .dallara_form .form-group .col:first-child .lab_vert {
+  width: auto;
+}
+
 #content .dallara_row .dallara_form .form-group .col:first-child .lab_vert label {
   text-align: left;
 }

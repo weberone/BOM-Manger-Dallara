@@ -419,7 +419,10 @@ a, a:hover, a:focus {
 					margin-top: 0px;
 				}
 				.col:first-child{
+					//padding-right: 0px;
+					flex-grow: 0.6;
 					.lab_vert{
+						width: auto;
 						label{
 							text-align: left;
 						}
