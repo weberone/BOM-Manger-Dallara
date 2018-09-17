@@ -1,3 +1,13 @@
+
+
+$(window).on("load",function(){
+    // LOADING
+    $('#wrapper').animate({'opacity': 1}, 'slow');
+    $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
+
+
+
 $(document).ready(function () {
     $("#sidebar").mCustomScrollbar({
         theme: "minimal"

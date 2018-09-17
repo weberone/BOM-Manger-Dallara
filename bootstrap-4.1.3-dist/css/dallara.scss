@@ -36,21 +36,46 @@
 /*-----------------------------------------------------------------------------------------------------*/
 /*-----------------------------------------------------------------------------------------------------*/
 
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:700');
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('fonts/roboto-bold-webfont.woff2') format('woff2'),
+         url('fonts/roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('fonts/roboto-regular-webfont.woff2') format('woff2'),
+         url('fonts/roboto-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'roboto_condensedbold';
+    src: url('fonts/robotocondensed-bold-webfont.woff2') format('woff2'),
+         url('fonts/robotocondensed-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
 
 @mixin regular {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'robotoregular', sans-serif;
 	font-weight: 400;
 }
 
 @mixin bold {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'robotobold', sans-serif;
 	font-weight: 700;
 }
 
 @mixin condensed_bold {
-	font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'roboto_condensedbold', sans-serif;
 	font-weight: 700;
 }
 
@@ -888,10 +913,113 @@ ul ul a {
 
 
 
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* LANDSCAPE */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+.landscape{
+	position: absolute;
+	display: none; 
+	width: 100%;
+	height: 100%;
+	background: $grigio;
+	h2{
+		position: absolute;
+		top: 50%;
+		width: 100%;
+		text-align: center;
+		padding: 0;
+		margin-top: 35px;
+		font-size: 14px;
+		line-height: 16px;
+		letter-spacing: 0.5px;
+		color: $bianco;
+		text-transform: inherit;
+		@include condensed_bold;
+	}
+	&:before{
+		content: url("../images/Dallara_logo.png");
+		background: $grigio;
+		//transform: scale(.7);
+		position: absolute;
+		//width: 100px;
+		top:50%;
+		left: 50%;
+		margin: -16px 0px 0px -87px;
+		z-index: 4;
+	}
+}
+
+/*@media (max-height: 480px) and (min-width: 480px) and (max-width: 600px) { 
+	body > .wrapper{
+       display: none;
+    }
+    .landscape{
+    	display: block;
+    }
+}*/
+
+
+@media  (max-width: 1280px) { 
+	#wrapper{
+       display: none;
+    }
+    .landscape{
+    	display: block;
+    }
+}
 
 
 
 
+
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/* PRELOADER */
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------------------------------*/
+
+
+#preloader { 
+	position: fixed; 
+	left: 0px; 
+	top: 0px; 
+	z-index: 9999; 
+	width: 100%; 
+	height: 100%; 
+	overflow: visible; 
+	background: $grigio;
+	&:after  {
+		content: url("../images/ajax-loader.gif");
+		//transform: scale(.7);
+		position: absolute;
+		top:50%;
+		left: 50%;
+		margin-top: 30px;
+		margin-left: -16px;
+		width: 32px;
+		height: 32px;
+		z-index: 2;
+	}
+	&:before  {
+		content: url("../images/Dallara_logo.png");
+		background: $grigio;
+		//transform: scale(.7);
+		position: absolute;
+		//width: 100px;
+		top:50%;
+		left: 50%;
+		margin: -16px 0px 0px -87px;
+		z-index: 4;
+	}
+}
 
 
 
