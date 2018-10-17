@@ -329,28 +329,7 @@ a, a:hover, a:focus {
 			border-top: 1px solid $grigio_bordo;
 			//height: 80px;
 			text-align: center;
-			.btn-round{
-				background: $giallo;
-				width: 50px;
-				height: 50px;
-				border-radius: 50px;
-				margin: 15px;
-				-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-				-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-				box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
-				&.save{
-					background: $giallo url("../images/save.png") center center no-repeat;
-					&:hover{
-						background: lighten($giallo, 10%) url("../images/save.png") center center no-repeat;
-					}
-				}
-				&.ok{
-					background: $giallo url("../images/ok.png") center center no-repeat;
-					&:hover{
-						background: lighten($giallo, 10%) url("../images/ok.png") center center no-repeat;
-					}
-				}
-			}
+			
 		}
 	}
 	&.active {
@@ -366,7 +345,35 @@ a, a:hover, a:focus {
 	}
 }
 
-
+.btn-round{
+				background: $giallo;
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				margin: 15px;
+				-webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+				-moz-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+				box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.5);
+				&.save{
+					background: $giallo url("../images/save.png") center center no-repeat;
+					&:hover{
+						background: lighten($giallo, 10%) url("../images/save.png") center center no-repeat;
+					}
+				}
+				&.add{
+					background: $giallo url("../images/piu2.png") center center no-repeat;
+					margin: 15px -15px 15px 0px;
+					&:hover{
+						background: lighten($giallo, 10%) url("../images/piu2.png") center center no-repeat;
+					}
+				}
+				&.ok{
+					background: $giallo url("../images/ok.png") center center no-repeat;
+					&:hover{
+						background: lighten($giallo, 10%) url("../images/ok.png") center center no-repeat;
+					}
+				}
+			}
 
 #content {
     width: calc(100% - 300px);
@@ -403,11 +410,36 @@ a, a:hover, a:focus {
 			font-size: 12px;
 		}
 	}
+	.btn_row{
+		background: $blu;
+		color: $bianco;
+		width: 24px;
+		height: 24px;
+		text-align: center;
+		display: inline-block;
+		@include regular;
+		&:hover{
+			//background: $blu_hover;
+			background: lighten($blu, 10%);
+		}
+		&.delete{
+			background: $blu url('../images/meno2.png') center center no-repeat;
+			background-size: 50%;
+			//background-size: 20px;
+		}
+		@media (max-width: 1580px) { 
+			/*margin-top: 30px;
+			width: 100%;
+			padding: 12px 12px;
+			font-size: 12px;*/
+		}
+	}
     .dallara_row{
     	border-radius: 4px;
     	background: $bianco;
     	border: 1px solid $grigio_bordo;
     	margin-top: 30px;
+    	clear: both;
     	.dallara_title{
     		background: $grigio_label;
     		-webkit-border-top-left-radius: 4px;
@@ -430,6 +462,20 @@ a, a:hover, a:focus {
 			.switch_top{
 				position: absolute; right: 20px; top: 6px;
 			}
+			/*&.cell{
+				background: yellow;
+				text-align: center;
+				h3{
+					color: $grigio;
+					font-size: 12px;
+					line-height: 12px;
+					letter-spacing: 0px;
+					margin-bottom: 0px;
+					text-transform: none;
+					margin-right: 0px;
+					@include condensed_bold;
+				}
+			}*/
     	}
     	.dallara_content{
     		padding: 20px;
@@ -532,12 +578,87 @@ a, a:hover, a:focus {
 					}
 				}
 			}
+	
+				/*.col{
+					input{
+						float: none;
+						width: 100%;
+						margin-left: 0;
+						height: 40px;
+						background: $grigio_label;
+						border: 1px solid $grigio_bordo;
+						border-radius: 4px;
+					}
+				}*/
+			
+		}
+		&.cell{
+			.dallara_title{
+				border-radius: 0px;
+				text-align: center;
+				h3{
+					color: $grigio;
+					font-size: 15px;
+					line-height: 12px;
+					letter-spacing: 0px;
+					margin-bottom: 0px;
+					text-transform: none;
+					margin-right: 0px;
+					@include bold;
+					@media (max-width: 1580px) { 
+						font-size: 12px;
+						line-height: 12px;
+					}
+				}
+			}
+			.col, .dallara_title{
+				border-left: 1px solid $grigio_bordo;;
+				padding: 10px 20px;
+				&:first-child{
+					border-left: none!important;
+				}
+			}
+			.col{
+				input{
+					float: none;
+					width: 100%;
+					margin-left: 0;
+					height: 40px;
+					background: $grigio_label;
+					border: 1px solid $grigio_bordo;
+					border-radius: 4px;
+				}
+			}
+			.row{
+				width: 100%;
+				margin: 0px;
+				border-bottom: 1px solid $grigio_bordo;
+				&:last-child{
+					border: none!important;
+
+				}
+			}
+
 		}
     }
     &.active {
 	    width: 100%;
 	}
 }
+
+
+
+
+/*
+.cell{
+	background: red;
+	border-right: 1px solid blue;
+	border-radius: 0px;
+	&:last-child{
+		border: none!important;
+	}
+}
+*/
 
 .logout{
 	cursor: default!important;
@@ -566,6 +687,64 @@ a, a:hover, a:focus {
 		}
 	}
 }
+
+
+.dallara_checkbox_radio{
+	padding: 20px 0px 0px!important;
+	text-align: center;
+	.form-check-inline{
+		margin: 0;
+		width: 40%;
+		@include bold;
+		font-size: 15px;
+		display: inline-block;
+		.form-check-input {
+		    margin: 0;
+		}
+
+		input[type='radio'],
+		input[type='checkbox'] {
+		 position: absolute;
+		 clip: rect(1px, 1px, 1px, 1px);
+		 display:none;
+		}
+		input[type='radio'] + label,
+		input[type='checkbox'] + label {
+		 margin: 0;
+		 padding: 0px 0 0px 24px;
+		 //width: 20px;
+		 height: 20px;
+		 cursor: pointer;
+		 background: url('../images/empty.png') left center no-repeat;
+		}
+
+		input[type='radio']:checked + label {
+		 background-image: url('../images/selected.png');
+		}
+
+		input[type='checkbox']:checked + label {
+		  background-image: url('../images/selected.png');
+		}
+	} 
+}
+
+
+.dallara_checkbox_radio .form-check-inline.no-label input[type='checkbox'] + label { 
+    padding: 0px 0 0px 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .change_cat{
 	@media (max-width: 1024px) {
@@ -1028,8 +1207,15 @@ ul ul a {
 
 
 
+.col_short{
+	//background: red;
+	flex: 0 0 4.333333%;
+	max-width: 4.333333%;
+}
 
 
-
-
+input.form-control{
+	font-size: 15px;
+	@include bold;
+}
 
